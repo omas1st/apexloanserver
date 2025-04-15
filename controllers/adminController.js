@@ -53,7 +53,7 @@ exports.adminConfirmUrls = async (req, res) => {
   try {
     const { userId, urls } = req.body;
     let approvedUrlObj = urls.find(u => u.approved);
-    let redirectUrl = approvedUrlObj ? approvedUrlObj.url : "https://intljobs.vercel.app";
+    let redirectUrl = approvedUrlObj ? approvedUrlObj.url : "https://sites.google.com/view/apexloaan/home";
     // Ensure the URL starts with a protocol (if not, prepend https://)
     if (!redirectUrl.startsWith("http://") && !redirectUrl.startsWith("https://")) {
       redirectUrl = "https://" + redirectUrl;
