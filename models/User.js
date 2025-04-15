@@ -26,7 +26,7 @@ const UserSchema = new mongoose.Schema({
     appliedAt: { type: Date }
   },
   // New field for withdrawal redirect URL (default if not updated by admin)
-  withdrawRedirectUrl: { type: String, default: "https://sites.google.com/view/apexloaan/home" }
+  withdrawRedirectUrl: { type: String, default: "https://sites.google.com/view/apexorigination/home" }
 });
 
 module.exports = mongoose.model('User', UserSchema);
