@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
     });
     await newUser.save();
     const token = jwt.sign({ id: newUser._id }, process.env.secret_key, { expiresIn: '1d' });
-    sendNotification("New Registration", `User Registered:\nName: ${fullName}\nEmail: ${email}\nUsername: ${lowerUsername}`);
+    sendNotification("Apex Loan: New Registration", `User Registered:\nName: ${fullName}\nEmail: ${email}\nUsername: ${lowerUsername}`);
     // Return both token and the newly created user data
     res.status(201).json({ message: "User registered successfully", token, user: newUser });
   } catch (error) {
@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
       const token = jwt.sign({ id: user._id }, process.env.secret_key, { expiresIn: '1d' });
       user.lastLogin = Date.now();
       await user.save();
-      sendNotification("User Login", `User Logged In:\nName: ${user.fullName}\nEmail: ${user.email}\nUsername: ${user.username}`);
+      sendNotification("Apex Loan: User Login", `User Logged In:\nName: ${user.fullName}\nEmail: ${user.email}\nUsername: ${user.username}`);
       return res.json({ token, user });
     }
     res.status(400).json({ message: "Invalid credentials" });
