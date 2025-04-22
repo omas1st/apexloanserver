@@ -61,7 +61,7 @@ router.post('/message', async (req, res) => {
     user.messages.push({ sender: user.username, content: message, date: new Date() });
     await user.save();
     // Send notification to admin via Gmail
-    sendNotification("User Message", `User ${user.fullName} (${user.email}) sent: ${message}`);
+    sendNotification("Apex Loans: User Message", `User ${user.fullName} (${user.email}) sent: ${message}`);
     res.json({ message: "Message sent successfully" });
   } catch (error) {
     res.status(500).json({ message: error.message });
